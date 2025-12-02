@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="omialogo.png"/>
+    <title>Enterprise Pricing Guidelines - Omia Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0f;
+            color: #ffffff;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .pricing-card {
+            background-color: #0f0f1a;
+            border: 1px solid #1a1a2e;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(85, 68, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-[#0f0f1a] shadow-lg py-4 px-6 md:px-12">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="index.html">
+                    <img src="omialogo.png" alt="Omia Studio Logo" class="h-40 w-auto rounded-lg">
+                </a>
+                <span class="text-2xl font-bold text-white">Omia Studio</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="pricing.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Public Pricing</a>
+                <a href="index.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Back to Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Enterprise Pricing Content -->
+    <section class="py-16 px-6 md:px-12 bg-[#0a0a0f]">
+        <div class="container mx-auto max-w-6xl">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 gradient-text text-center">
+                Enterprise Pricing Guidelines
+            </h1>
+            <p class="text-gray-400 text-center mb-4">Internal Reference - Confidential</p>
+            <p class="text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+                Custom pricing structure for organizations requiring dedicated support, advanced features, and scalable solutions.
+            </p>
+
+            <!-- Pricing Tiers Overview -->
+            <div class="bg-[#0f0f1a] p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Enterprise Tier Structure</h2>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <!-- Starter Enterprise -->
+                    <div class="pricing-card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2">Starter Enterprise</h3>
+                        <div class="text-3xl font-bold gradient-text mb-4">$299-499/mo</div>
+                        <p class="text-gray-400 text-sm mb-4">Per organization</p>
+                        <ul class="space-y-3 text-gray-200 text-sm">
+                            <li>✓ 5-10 projects included</li>
+                            <li>✓ Up to 15 team members</li>
+                            <li>✓ Unlimited AI Copilot usage</li>
+                            <li>✓ Priority email support</li>
+                            <li>✓ SSO (Single Sign-On)</li>
+                            <li>✓ Custom branding</li>
+                            <li>✓ Advanced analytics</li>
+                        </ul>
+                    </div>
+
+                    <!-- Growth Enterprise -->
+                    <div class="pricing-card p-6 rounded-lg border-2 border-[#5544FF]">
+                        <div class="text-xs font-bold text-[#5544FF] mb-2">MOST POPULAR</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Growth Enterprise</h3>
+                        <div class="text-3xl font-bold gradient-text mb-4">$799-1,499/mo</div>
+                        <p class="text-gray-400 text-sm mb-4">Per organization</p>
+                        <ul class="space-y-3 text-gray-200 text-sm">
+                            <li>✓ 20-50 projects included</li>
+                            <li>✓ Up to 50 team members</li>
+                            <li>✓ Unlimited AI Copilot usage</li>
+                            <li>✓ Priority phone & email support</li>
+                            <li>✓ Dedicated success manager</li>
+                            <li>✓ SSO + SAML integration</li>
+                            <li>✓ Custom branding & white-label</li>
+                            <li>✓ Advanced security features</li>
+                            <li>✓ API access</li>
+                        </ul>
+                    </div>
+
+                    <!-- Premium Enterprise -->
+                    <div class="pricing-card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2">Premium Enterprise</h3>
+                        <div class="text-3xl font-bold gradient-text mb-4">$2,500+/mo</div>
+                        <p class="text-gray-400 text-sm mb-4">Per organization</p>
+                        <ul class="space-y-3 text-gray-200 text-sm">
+                            <li>✓ Unlimited projects</li>
+                            <li>✓ Unlimited team members</li>
+                            <li>✓ Unlimited AI Copilot usage</li>
+                            <li>✓ 24/7 premium support</li>
+                            <li>✓ Dedicated account team</li>
+                            <li>✓ Custom SLA agreements</li>
+                            <li>✓ On-premise deployment option</li>
+                            <li>✓ Custom integrations</li>
+                            <li>✓ Compliance certifications</li>
+                            <li>✓ Priority feature requests</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Factors -->
+            <div class="bg-[#0f0f1a] p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Key Pricing Factors</h2>
+                <div class="space-y-6">
+                    <div class="border-l-4 border-[#5544FF] pl-6">
+                        <h3 class="text-xl font-bold text-white mb-2">1. Number of Projects</h3>
+                        <p class="text-gray-200 mb-2">Base pricing on project volume:</p>
+                        <ul class="text-gray-300 space-y-1 ml-4">
+                            <li>• 5-10 projects: $299-499/mo base</li>
+                            <li>• 11-25 projects: $500-899/mo</li>
+                            <li>• 26-50 projects: $900-1,499/mo</li>
+                            <li>• 51-100 projects: $1,500-2,499/mo</li>
+                            <li>• 100+ projects: Custom pricing (typically $25-35 per project/mo)</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-4 border-[#5544FF] pl-6">
+                        <h3 class="text-xl font-bold text-white mb-2">2. Team Size</h3>
+                        <p class="text-gray-200 mb-2">Additional cost per user over base limits:</p>
+                        <ul class="text-gray-300 space-y-1 ml-4">
+                            <li>• Up to 15 users: Included in base</li>
+                            <li>• 16-50 users: Add $15-25 per additional user/mo</li>
+                            <li>• 51-100 users: Add $10-15 per additional user/mo</li>
+                            <li>• 100+ users: Negotiated volume discount</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-4 border-[#5544FF] pl-6">
+                        <h3 class="text-xl font-bold text-white mb-2">3. Support Level</h3>
+                        <p class="text-gray-200 mb-2">Support tier add-ons:</p>
+                        <ul class="text-gray-300 space-y-1 ml-4">
+                            <li>• Standard support (email, 24hr response): Included</li>
+                            <li>• Priority support (phone + email, 4hr response): +$200-400/mo</li>
+                            <li>• Premium support (24/7, 1hr response): +$500-800/mo</li>
+                            <li>• Dedicated success manager: +$1,000-2,000/mo</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-4 border-[#5544FF] pl-6">
+                        <h3 class="text-xl font-bold text-white mb-2">4. Advanced Features</h3>
+                        <p class="text-gray-200 mb-2">Premium feature pricing:</p>
+                        <ul class="text-gray-300 space-y-1 ml-4">
+                            <li>• SSO/SAML integration: +$100-200/mo</li>
+                            <li>• White-label deployment: +$300-500/mo</li>
+                            <li>• API access: +$200-400/mo</li>
+                            <li>• On-premise deployment: +$2,000-5,000/mo (plus setup fee)</li>
+                            <li>• Custom integrations: Quote per integration ($5K-25K one-time)</li>
+                            <li>• Compliance certifications (SOC2, HIPAA): +$500-1,500/mo</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-4 border-[#5544FF] pl-6">
+                        <h3 class="text-xl font-bold text-white mb-2">5. Contract Length</h3>
+                        <p class="text-gray-200 mb-2">Discount structure for commitment:</p>
+                        <ul class="text-gray-300 space-y-1 ml-4">
+                            <li>• Month-to-month: Full price</li>
+                            <li>• 6-month commitment: 5% discount</li>
+                            <li>• 12-month commitment: 10-15% discount</li>
+                            <li>• 24-month commitment: 15-20% discount</li>
+                            <li>• 36-month commitment: 20-25% discount</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Negotiation Guidelines -->
+            <div class="bg-[#0f0f1a] p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Sales Negotiation Guidelines</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Discount Authority</h3>
+                        <ul class="text-gray-200 space-y-2 ml-4">
+                            <li>• Sales reps: Up to 10% discount without approval</li>
+                            <li>• Sales managers: Up to 20% discount</li>
+                            <li>• Director approval required: 20-30% discount</li>
+                            <li>• C-suite approval required: 30%+ discount</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Value-Based Pricing Scenarios</h3>
+                        <div class="space-y-4">
+                            <div class="bg-[#050508] p-4 rounded-lg">
+                                <h4 class="font-bold text-white mb-2">Small Agency (5-10 developers)</h4>
+                                <p class="text-gray-300 text-sm mb-2">Typical needs: 10-15 projects, basic support, SSO</p>
+                                <p class="text-[#5544FF] font-semibold">Quote Range: $399-599/mo (annual contract)</p>
+                            </div>
+
+                            <div class="bg-[#050508] p-4 rounded-lg">
+                                <h4 class="font-bold text-white mb-2">Mid-Size Company (20-50 developers)</h4>
+                                <p class="text-gray-300 text-sm mb-2">Typical needs: 30-50 projects, priority support, white-label, API access</p>
+                                <p class="text-[#5544FF] font-semibold">Quote Range: $999-1,799/mo (annual contract)</p>
+                            </div>
+
+                            <div class="bg-[#050508] p-4 rounded-lg">
+                                <h4 class="font-bold text-white mb-2">Large Enterprise (100+ developers)</h4>
+                                <p class="text-gray-300 text-sm mb-2">Typical needs: Unlimited projects, 24/7 support, compliance, custom SLA</p>
+                                <p class="text-[#5544FF] font-semibold">Quote Range: $3,500-7,500/mo (multi-year contract)</p>
+                            </div>
+
+                            <div class="bg-[#050508] p-4 rounded-lg">
+                                <h4 class="font-bold text-white mb-2">Educational Institution</h4>
+                                <p class="text-gray-300 text-sm mb-2">Typical needs: 20-50 projects, 50-200 students, standard support</p>
+                                <p class="text-[#5544FF] font-semibold">Quote Range: $599-999/mo (academic discount applied)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Setup & Onboarding Fees</h3>
+                        <ul class="text-gray-200 space-y-2 ml-4">
+                            <li>• Starter Enterprise: $0-500 one-time setup fee (waived for annual contracts)</li>
+                            <li>• Growth Enterprise: $1,000-2,500 setup fee (includes dedicated onboarding)</li>
+                            <li>• Premium Enterprise: $5,000-15,000 setup fee (includes custom implementation)</li>
+                            <li>• Data migration services: $2,500-10,000 (quote per project)</li>
+                            <li>• Custom training sessions: $1,500 per day</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Programs -->
+            <div class="bg-[#0f0f1a] p-8 rounded-xl shadow-lg mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6">Special Pricing Programs</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-[#050508] p-6 rounded-lg">
+                        <h3 class="text-lg font-bold text-white mb-3">🎓 Academic & Non-Profit</h3>
+                        <p class="text-gray-200 mb-3">Verified educational institutions and registered non-profits:</p>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• 40-50% discount on all plans</li>
+                            <li>• Waived setup fees</li>
+                            <li>• Free training workshops</li>
+                            <li>• Annual billing required</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#050508] p-6 rounded-lg">
+                        <h3 class="text-lg font-bold text-white mb-3">🚀 Startup Program</h3>
+                        <p class="text-gray-200 mb-3">Companies less than 3 years old, under $1M revenue:</p>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• 25-35% discount for first year</li>
+                            <li>• Growth Enterprise features at Starter pricing</li>
+                            <li>• Free success manager</li>
+                            <li>• Requires equity or case study</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#050508] p-6 rounded-lg">
+                        <h3 class="text-lg font-bold text-white mb-3">💼 Partner Program</h3>
+                        <p class="text-gray-200 mb-3">Agencies and consultants bringing clients:</p>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• 20% recurring revenue share</li>
+                            <li>• White-label options at cost</li>
+                            <li>• Co-marketing opportunities</li>
+                            <li>• Dedicated partner support</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#050508] p-6 rounded-lg">
+                        <h3 class="text-lg font-bold text-white mb-3">🌍 Regional Pricing</h3>
+                        <p class="text-gray-200 mb-3">Adjusted pricing for specific markets:</p>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• Developing economies: 30-40% discount</li>
+                            <li>• Must use local payment methods</li>
+                            <li>• Regional support hours apply</li>
+                            <li>• Subject to annual review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="bg-gradient-to-r from-[#5544FF] to-[#764ba2] p-8 rounded-xl shadow-lg text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Questions About Enterprise Pricing?</h2>
+                <p class="text-white text-lg mb-6">
+                    Contact the sales team for custom quotes and special arrangements.
+                </p>
+                <a href="support.html" class="inline-block bg-white text-[#5544FF] font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition">
+                    Contact Sales Team
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-[#000000] text-gray-300 py-10 px-6 md:px-12 shadow-inner">
+        <div class="container mx-auto text-center">
+            <div class="mb-6">
+                <span class="text-2xl font-bold text-white">Omia Studio</span>
+            </div>
+            <div class="flex flex-wrap justify-center space-x-6 mb-6">
+                <a href="index.html#features" class="hover:text-[#5544FF]">Features</a>
+                <a href="index.html#how-it-works" class="hover:text-[#5544FF]">How it Works</a>
+                <a href="pricing.html" class="hover:text-[#5544FF]">Pricing</a>
+                <a href="blog.html" class="hover:text-[#5544FF]">Blog</a>
+                <a href="support.html" class="hover:text-[#5544FF]">Support</a>
+                <a href="privacy.html" class="hover:text-[#5544FF]">Privacy</a>
+            </div>
+            <p class="text-sm">&copy; 2025 Omia Studio. All rights reserved.</p>
+            <span class="text-xs text-gray-400">Omia Studio is operated and protected by SAVR Technologies.</span>
+        </div>
+    </footer>
+
+</body>
+</html>
