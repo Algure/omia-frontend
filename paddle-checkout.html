@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omia Studio · Checkout</title>
+  <!-- Paddle JS SDK -->
+  <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+  <script type="text/javascript">
+    // Get TID from URL (_ptxn=txn_...)
+    function getTransactionIdFromUrl() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('_ptxn');
+      } catch (e) {
+        console.warn('Unable to parse URL params for _ptxn:', e);
+        return null;
+      }
+    }
+
+    // Initialize Paddle (set sandbox/production as needed)
+    // Note: If you require sandbox testing, uncomment the environment line below.
+    // Paddle.Environment.set('sandbox');
+    Paddle.Initialize({
+      token: "live_40b9e5a75f289a7399a99ecbeb6" // replace with your client-side token
+    });
+
+    // Keep a copy of the TID for display/debug
+    const tid = getTransactionIdFromUrl();
+
+    // Open checkout with transactionId attached
+    function openCheckout(){
+      const options = {};
+      if (tid) {
+        options.transactionId = tid;
+      }
+      Paddle.Checkout.open(options);
+    }
+
+    // Automatically open checkout when page loads
+    window.addEventListener('DOMContentLoaded', function(){
+      openCheckout();
+      // Update helper note if present
+      var noteEl = document.getElementById('ptxn-note');
+      if (noteEl) {
+        noteEl.textContent = tid ? ('Transaction Id: ' + tid) : 'No transaction id found in URL';
+      }
+    });
+  </script>
+  <style>
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background:#0a0a0f; color:#ffffff; margin:0; }
+    .container { max-width: 720px; margin: 0 auto; padding: 24px; }
+    .cta { display:inline-block; margin-top:16px; color:#5544FF; text-decoration:none; font-weight:700; }
+    .cta:hover { text-decoration: underline; }
+    .note { color:#9ca3af; font-size:12px; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Checkout</h1>
+    <p>Your checkout will open automatically. If it doesn't, use the link below:</p>
+    <a href="#" class="cta" onclick="openCheckout(); return false;"><b>Checkout</b></a>
+    <p id="ptxn-note" class="note"></p>
+  </div>
+</body>
+</html>

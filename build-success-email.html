@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{project_name}} – Build Success</title>
+  </head>
+  <body style="margin:0; padding:0; background:#0a0a0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, Helvetica, Arial, sans-serif; color:#ffffff">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#0a0a0f;">
+      <tr>
+        <td align="center" style="padding:24px;">
+          <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; background:#0f0f1a; border-radius:12px; overflow:hidden; box-shadow:0 6px 24px rgba(17,24,39,0.12);">
+            <!-- Brand Bar -->
+            <tr>
+              <td style="padding:16px 24px; background:#0f0f1a; border-bottom:1px solid #1f2937;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td align="left" style="font-size:0;">
+                      <img src="omialogo.png" alt="Omia Studio" width="32" height="32" style="display:inline-block; border-radius:6px; vertical-align:middle;" />
+                      <span style="display:inline-block; vertical-align:middle; margin-left:8px; font-size:14px; font-weight:600; color:#ffffff;">Omia Studio</span>
+                    </td>
+                    <td align="right" style="font-size:12px; color:#9ca3af;">Build System</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Header -->
+            <tr>
+              <td style="padding:20px 24px; text-align:left; border-bottom:1px solid #1f2937;">
+                <h1 style="margin:0; font-size:20px; line-height:28px; color:#ffffff;">
+                  ✅ Build Completed Successfully
+                </h1>
+                <p style="margin:6px 0 0; font-size:13px; color:#9ca3af;">
+                  {{project_name}} · Build #{{build_number}} · {{timestamp}}
+                </p>
+              </td>
+            </tr>
+
+            <!-- Summary -->
+            <tr>
+              <td style="padding:20px 24px;">
+                <p style="margin:0 0 10px; font-size:15px; color:#ffffff;">
+                  Hi {{recipient_name}},
+                </p>
+                <p style="margin:0 0 16px; font-size:15px; color:#d1d5db;">
+                  Your build for <strong>{{project_name}}</strong> has finished successfully.
+                  Below are the build details and links to access the outputs.
+                </p>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#0a0a0f; border:1px solid #1f2937; border-radius:8px;">
+                  <tr>
+                    <td style="padding:12px 16px; font-size:14px; color:#d1d5db;">
+                      <div><strong>Status:</strong> Success ✅</div>
+                      <div><strong>Branch:</strong> {{branch}}</div>
+                      <div><strong>Commit:</strong> {{commit_sha}}</div>
+                      <div><strong>Triggered By:</strong> {{triggered_by}}</div>
+                      <div><strong>Environment:</strong> {{environment}}</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Build Links -->
+            <tr>
+              <td style="padding:8px 24px;">
+                <h2 style="margin:16px 0 8px; font-size:16px; line-height:24px; color:#ffffff;">Build Links</h2>
+                <p style="margin:0 0 12px; font-size:14px; color:#9ca3af;">Use the links below to preview or download artifacts.</p>
+
+                <!-- Web -->
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 8px;">
+                  <tr>
+                    <td style="font-size:14px; color:#e5e7eb; padding:8px 0;">
+                      <strong>Web Preview:</strong> <a href="{{web_url}}" style="color:#5544FF; text-decoration:none;">{{web_url}}</a>
+                    </td>
+                    <td align="right" style="padding:8px 0;">
+                      <a href="{{web_url}}" style="display:inline-block; background:#5544FF; background-image: linear-gradient(90deg, #5544FF, #764ba2); color:#ffffff; text-decoration:none; font-size:14px; padding:8px 14px; border-radius:8px;">Open Web</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- iOS -->
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 8px;">
+                  <tr>
+                    <td style="font-size:14px; color:#e5e7eb; padding:8px 0;">
+                      <strong>iOS (TestFlight/App Store):</strong> <a href="{{ios_url}}" style="color:#5544FF; text-decoration:none;">{{ios_url}}</a>
+                    </td>
+                    <td align="right" style="padding:8px 0;">
+                      <a href="{{ios_url}}" style="display:inline-block; background:#5544FF; background-image: linear-gradient(90deg, #5544FF, #764ba2); color:#ffffff; text-decoration:none; font-size:14px; padding:8px 14px; border-radius:8px;">Open iOS</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Android -->
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 8px;">
+                  <tr>
+                    <td style="font-size:14px; color:#e5e7eb; padding:8px 0;">
+                      <strong>Android (APK/Play Console):</strong> <a href="{{android_url}}" style="color:#5544FF; text-decoration:none;">{{android_url}}</a>
+                    </td>
+                    <td align="right" style="padding:8px 0;">
+                      <a href="{{android_url}}" style="display:inline-block; background:#5544FF; background-image: linear-gradient(90deg, #5544FF, #764ba2); color:#ffffff; text-decoration:none; font-size:14px; padding:8px 14px; border-radius:8px;">Open Android</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Other artifact -->
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 8px;">
+                  <tr>
+                    <td style="font-size:14px; color:#e5e7eb; padding:8px 0;">
+                      <strong>Other Artifact:</strong> <a href="{{other_url}}" style="color:#5544FF; text-decoration:none;">{{other_url}}</a>
+                    </td>
+                    <td align="right" style="padding:8px 0;">
+                      <a href="{{other_url}}" style="display:inline-block; background:#5544FF; background-image: linear-gradient(90deg, #5544FF, #764ba2); color:#ffffff; text-decoration:none; font-size:14px; padding:8px 14px; border-radius:8px;">Open Artifact</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <p style="margin:12px 0 0; font-size:12px; color:#9ca3af;">Note: Some links may require proper access or signed credentials.</p>
+              </td>
+            </tr>
+
+            <!-- Next steps -->
+            <tr>
+              <td style="padding:16px 24px;">
+                <h2 style="margin:0 0 8px; font-size:16px; line-height:24px; color:#ffffff;">Next Steps</h2>
+                <ul style="margin:8px 0 0; padding-left:18px; font-size:14px; color:#d1d5db;">
+                  <li>Smoke test the build in target environments</li>
+                  <li>Verify assets and versioning</li>
+                  <li>Proceed to release if all checks pass</li>
+                </ul>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="padding:18px 24px; border-top:1px solid #1f2937; background:#000000;">
+                <p style="margin:0; font-size:12px; color:#9ca3af;">This notification was sent by Omia Studio build system.</p>
+                <p style="margin:4px 0 0; font-size:12px; color:#6b7280;">Project: {{project_name}} · Build #{{build_number}} · {{timestamp}}</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

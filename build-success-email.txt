@@ -1,0 +1,27 @@
+Subject: {{project_name}} — Build #{{build_number}} Succeeded
+
+Hi {{recipient_name}},
+
+Your build for {{project_name}} completed successfully.
+
+Summary
+- Status: Success
+- Branch: {{branch}}
+- Commit: {{commit_sha}}
+- Environment: {{environment}}
+- Triggered By: {{triggered_by}}
+- Timestamp: {{timestamp}}
+
+Build Links
+- Web Preview: {{web_url}}
+- iOS (TestFlight/App Store): {{ios_url}}
+- Android (APK/Play Console): {{android_url}}
+- Other Artifact: {{other_url}}
+
+Next Steps
+- Smoke test the build in target environments
+- Verify assets and versioning
+- Proceed to release if all checks pass
+
+Regards,
+Omia Studio Build System
