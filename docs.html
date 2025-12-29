@@ -18,13 +18,13 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
   :root {
-    --accent-purple: #6c63ff;
-    --accent-light: #dcdcff;
-    --text-primary: #2c2c2c;
-    --text-secondary: #555555;
-    --bg-sidebar: #f9f9fc;
-    --bg-content: #ffffff;
-    --border-color: #e0e0f7;
+    --accent-purple: #8b5cf6;      /* violet-500 */
+    --accent-light: rgba(139, 92, 246, 0.18);
+    --text-primary: #e5e7eb;        /* slate-200 */
+    --text-secondary: #cbd5e1;      /* slate-300 */
+    --bg-sidebar: #0f172a;          /* slate-900 */
+    --bg-content: #0b1020;          /* deep dark */
+    --border-color: #1f2937;        /* slate-800 */
   }
 
   * {
@@ -38,7 +38,7 @@
     color: var(--text-primary);
     display: flex;
     height: 100vh;
-    background: #fafafa;
+    background: var(--bg-content);
   }
 
   #sidebar {
@@ -133,8 +133,8 @@
   }
 
   pre {
-    background: #2d2d40;
-    color: #dcdcff;
+    background: #1f2335;
+    color: #e5e7eb;
     border-radius: 8px;
     padding: 20px;
     overflow-x: auto;
@@ -146,7 +146,7 @@
 
   code {
     background: var(--accent-light);
-    color: var(--accent-purple);
+    color: #f8fafc;           /* lighter inline code text */
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-family: 'Fira Code', monospace, monospace;
@@ -159,7 +159,7 @@
     padding-left: 16px;
     color: var(--accent-purple);
     font-style: italic;
-    background-color: #f0f0ff;
+    background-color: rgba(139, 92, 246, 0.12);
     border-radius: 4px;
   }
 
@@ -169,9 +169,9 @@
     margin: 2em 0;
   }
 
-  a {
-    color: var(--accent-purple);
-    text-decoration: none;
+  pre {
+    background: #1f2335;
+    color: #f8fafc;           /* lighter block code text */
     font-weight: 600;
   }
   a:hover {
@@ -180,6 +180,12 @@
 
   /* Scrollbar styling */
   #sidebar::-webkit-scrollbar,
+
+  /* Ensure highlight.js default token color is light enough */
+  pre code,
+  .hljs {
+    color: #f8fafc;
+  }
   #content::-webkit-scrollbar {
     width: 10px;
   }
