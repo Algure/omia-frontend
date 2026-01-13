@@ -54,7 +54,7 @@
   // Import the functions you need from the SDKs
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
-  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -73,24 +73,28 @@
   const auth = getAuth(app);
 
   // Handle redirect result if returning from Google
+  async function persistAndClose(user) {
+    const idToken = await user.getIdToken();
+    localStorage.setItem('omigoogle_uid', user.uid);
+    localStorage.setItem('omigoogle_email', user.email || '');
+    localStorage.setItem('omigoogle_displayName', user.displayName || '');
+    localStorage.setItem('omigoogle_photoURL', user.photoURL || '');
+    localStorage.setItem('omigoogle_idToken', idToken);
+    if (user.providerData && user.providerData.length > 0) {
+      const providerInfo = user.providerData[0];
+      localStorage.setItem('omigoogle_providerId', providerInfo.providerId || '');
+      localStorage.setItem('omigoogle_providerEmail', providerInfo.email || '');
+    }
+    try { window.close(); } catch {}
+  }
+
   async function handleRedirectResult() {
     try {
       const result = await getRedirectResult(auth);
       if (result && result.user) {
         const user = result.user;
-        const idToken = await user.getIdToken();
-        localStorage.setItem('omigoogle_uid', user.uid);
-        localStorage.setItem('omigoogle_email', user.email || '');
-        localStorage.setItem('omigoogle_displayName', user.displayName || '');
-        localStorage.setItem('omigoogle_photoURL', user.photoURL || '');
-        localStorage.setItem('omigoogle_idToken', idToken);
-        if (user.providerData && user.providerData.length > 0) {
-          const providerInfo = user.providerData[0];
-          localStorage.setItem('omigoogle_providerId', providerInfo.providerId || '');
-          localStorage.setItem('omigoogle_providerEmail', providerInfo.email || '');
-        }
         console.log('Google redirect sign-in successful!', user.email);
-        try { window.close(); } catch {}
+        await persistAndClose(user);
         return true;
       }
     } catch (error) {
@@ -122,6 +126,28 @@
       console.error('Manual redirect sign-in error:', e);
     }
   };
+
+  // Popup flow for the button with graceful fallback
+  window.signInWithGooglePopup = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      if (result && result.user) {
+        console.log('Google popup sign-in successful!', result.user.email);
+        await persistAndClose(result.user);
+        return;
+      }
+    } catch (e) {
+      // Common popup issues: blocked or closed by user; fallback to redirect
+      console.warn('Popup sign-in failed, falling back to redirect:', e?.code || e);
+      try {
+        const provider = new GoogleAuthProvider();
+        await signInWithRedirect(auth, provider);
+      } catch (err) {
+        console.error('Fallback redirect failed:', err);
+      }
+    }
+  };
 </script>
 <script>
     // Cancel button closes the window
@@ -129,8 +155,8 @@
       const googleBtn = document.getElementById('google-btn');
       if (googleBtn) {
         googleBtn.addEventListener('click', function() {
-          if (typeof window.signInWithGoogleRedirect === 'function') {
-            window.signInWithGoogleRedirect();
+          if (typeof window.signInWithGooglePopup === 'function') {
+            window.signInWithGooglePopup();
           }
         });
       }
