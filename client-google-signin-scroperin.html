@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Google Sign-In Demo</title>
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+    }
+    #output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Google Sign-In</h1>
+
+  <!-- Google Sign-In button -->
+  <div
+    id="g_id_onload"
+    data-client_id="YOUR_CLIENT_ID_HERE"
+    data-callback="handleCredentialResponse"
+    data-auto_prompt="false">
+  </div>
+
+  <div
+    class="g_id_signin"
+    data-type="standard"
+    data-size="large"
+    data-theme="outline"
+    data-text="sign_in_with"
+    data-shape="rectangular">
+  </div>
+
+  <h3>JWT Credential</h3>
+  <div id="output"></div>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwa3eo7S48nlEaF92vmlVTLFSTEk0a8Ww",
+    authDomain: "savr-1c4c5.firebaseapp.com",
+    projectId: "savr-1c4c5",
+    storageBucket: "savr-1c4c5.appspot.com",
+    messagingSenderId: "447762928895",
+    appId: "1:447762928895:web:6bba818a867028a0bbe8ca",
+    measurementId: "G-N0BML81ZGJ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+    <script>
+        // Callback function to handle the credential response
+        function handleCredentialResponse(response) {
+        document.getElementById('output').textContent = 'JWT Credential: ' + response.credential;
+        }
+    </script>
+</body>
+</html>
+
+
