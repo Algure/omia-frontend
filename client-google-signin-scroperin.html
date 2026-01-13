@@ -40,8 +40,11 @@
     </section>
 
     <section class="max-w-xl mx-auto card p-6">
+      <!-- Primary Google Sign-In Button -->
+      <button id="google-btn" type="button" class="w-full bg-white text-[#5544FF] hover:bg-gray-100 px-4 py-2 rounded-lg font-bold" aria-label="Sign in with Google">Sign in with Google</button>
+
       <!-- Redirecting notice -->
-      <p class="text-gray-300">Redirecting to Google for sign-in…</p>
+      <p class="text-gray-300 mt-4">Redirecting to Google for sign-in… If not redirected, use the button above.</p>
 
       <button id="cancel-btn" type="button" class="mt-6 w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold" aria-label="Cancel and close window">Cancel</button>
 
@@ -109,10 +112,28 @@
       }
     }
   });
+
+  // Expose a manual trigger for the button
+  window.signInWithGoogleRedirect = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithRedirect(auth, provider);
+    } catch (e) {
+      console.error('Manual redirect sign-in error:', e);
+    }
+  };
 </script>
 <script>
     // Cancel button closes the window
     document.addEventListener('DOMContentLoaded', function() {
+      const googleBtn = document.getElementById('google-btn');
+      if (googleBtn) {
+        googleBtn.addEventListener('click', function() {
+          if (typeof window.signInWithGoogleRedirect === 'function') {
+            window.signInWithGoogleRedirect();
+          }
+        });
+      }
       const cancelBtn = document.getElementById('cancel-btn');
       if (cancelBtn) {
         cancelBtn.addEventListener('click', function() {
