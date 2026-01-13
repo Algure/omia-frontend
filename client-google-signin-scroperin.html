@@ -43,8 +43,8 @@
       <!-- Primary Google Sign-In Button -->
       <button id="google-btn" type="button" class="w-full bg-white text-[#5544FF] hover:bg-gray-100 px-4 py-2 rounded-lg font-bold" aria-label="Sign in with Google">Sign in with Google</button>
 
-      <!-- Redirecting notice -->
-      <p class="text-gray-300 mt-4">Redirecting to Google for sign-in… If not redirected, use the button above.</p>
+      <!-- Helper text -->
+      <p class="text-gray-300 mt-4">Click the button above to sign in with Google.</p>
 
       <button id="cancel-btn" type="button" class="mt-6 w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold" aria-label="Cancel and close window">Cancel</button>
 
@@ -54,7 +54,7 @@
   // Import the functions you need from the SDKs
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
-  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -88,46 +88,7 @@
     try { window.close(); } catch {}
   }
 
-  async function handleRedirectResult() {
-    try {
-      const result = await getRedirectResult(auth);
-      if (result && result.user) {
-        const user = result.user;
-        console.log('Google redirect sign-in successful!', user.email);
-        await persistAndClose(user);
-        return true;
-      }
-    } catch (error) {
-      console.error('Error handling redirect result:', error);
-    }
-    return false;
-  }
-
-  // Auto-trigger redirect sign-in on load, avoiding postMessage/popups
-  document.addEventListener('DOMContentLoaded', async () => {
-    const handled = await handleRedirectResult();
-    if (handled) return;
-    if (!auth.currentUser) {
-      const attempted = sessionStorage.getItem('omi_google_redirect_attempted');
-      if (!attempted) {
-        sessionStorage.setItem('omi_google_redirect_attempted', '1');
-        const provider = new GoogleAuthProvider();
-        await signInWithRedirect(auth, provider);
-      }
-    }
-  });
-
-  // Expose a manual trigger for the button
-  window.signInWithGoogleRedirect = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      await signInWithRedirect(auth, provider);
-    } catch (e) {
-      console.error('Manual redirect sign-in error:', e);
-    }
-  };
-
-  // Popup flow for the button with graceful fallback
+  // Popup flow for the button
   window.signInWithGooglePopup = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -138,14 +99,7 @@
         return;
       }
     } catch (e) {
-      // Common popup issues: blocked or closed by user; fallback to redirect
-      console.warn('Popup sign-in failed, falling back to redirect:', e?.code || e);
-      try {
-        const provider = new GoogleAuthProvider();
-        await signInWithRedirect(auth, provider);
-      } catch (err) {
-        console.error('Fallback redirect failed:', err);
-      }
+      console.error('Popup sign-in failed:', e);
     }
   };
 </script>
