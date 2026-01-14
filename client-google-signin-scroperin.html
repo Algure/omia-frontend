@@ -85,7 +85,32 @@
       localStorage.setItem('omigoogle_providerId', providerInfo.providerId || '');
       localStorage.setItem('omigoogle_providerEmail', providerInfo.email || '');
     }
-    try { window.history.back(); } catch {}
+    // Also attempt to persist in opener window's storage (same-origin)
+    try {
+      if (window.opener && !window.opener.closed) {
+        const ols = window.opener.localStorage;
+        ols.setItem('omigoogle_uid', user.uid);
+        ols.setItem('omigoogle_email', user.email || '');
+        ols.setItem('omigoogle_displayName', user.displayName || '');
+        ols.setItem('omigoogle_photoURL', user.photoURL || '');
+        ols.setItem('omigoogle_idToken', idToken);
+        if (user.providerData && user.providerData.length > 0) {
+          const providerInfo = user.providerData[0];
+          ols.setItem('omigoogle_providerId', providerInfo.providerId || '');
+          ols.setItem('omigoogle_providerEmail', providerInfo.email || '');
+        }
+      }
+    } catch (e) {
+      console.warn('Could not write to opener localStorage:', e);
+    }
+
+    // Close popup window per requirement
+    try { window.close(); } catch {}
+    // Fallback: if the window wasn't opened as a popup and couldn't close,
+    // go back to the previous page in this tab so it can read localStorage.
+    setTimeout(() => {
+      try { window.history.back(); } catch {}
+    }, 150);
   }
 
   // Popup flow for the button
