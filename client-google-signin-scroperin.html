@@ -133,10 +133,43 @@
       console.warn('Could not postMessage to opener:', e);
     }
 
-    // Always attempt to close the popup window after saving data
+    // Try to close the popup window after saving data, but show fallback if blocked
     setTimeout(() => {
-      try { window.close(); } catch (e) { console.warn('Unable to close window:', e); }
+      if (window.location.origin === 'https://omia.pro') {
+        try {
+          window.close();
+        } catch (e) {
+          console.warn('Unable to close window:', e);
+          showManualCloseMessage();
+        }
+      } else {
+        showManualCloseMessage();
+      }
     }, 150);
+
+    // Fallback: show a message and button to let the user close the popup manually
+    function showManualCloseMessage() {
+      let msg = document.getElementById('close-fallback-msg');
+      if (!msg) {
+        msg = document.createElement('div');
+        msg.id = 'close-fallback-msg';
+        msg.style.position = 'fixed';
+        msg.style.top = '0';
+        msg.style.left = '0';
+        msg.style.width = '100vw';
+        msg.style.height = '100vh';
+        msg.style.background = 'rgba(10,10,15,0.95)';
+        msg.style.display = 'flex';
+        msg.style.flexDirection = 'column';
+        msg.style.justifyContent = 'center';
+        msg.style.alignItems = 'center';
+        msg.style.zIndex = '9999';
+        msg.innerHTML = '<div style="color:white;font-size:1.2rem;margin-bottom:1.5rem;">Sign-in complete.<br>Please close this window.</div>' +
+          '<button style="background:#5544FF;color:white;font-size:1rem;padding:0.75rem 2rem;border:none;border-radius:0.5rem;cursor:pointer;">Close Window</button>';
+        msg.querySelector('button').onclick = () => window.close();
+        document.body.appendChild(msg);
+      }
+    }
   }
 
   // Popup flow for the button
