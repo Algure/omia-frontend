@@ -113,23 +113,24 @@
       localStorage.setItem('omigoogle_providerId', providerInfo.providerId || '');
       localStorage.setItem('omigoogle_providerEmail', providerInfo.email || '');
     }
-    // Also attempt to persist in opener window's storage (same-origin)
+
+    // Send user data to opener window via postMessage (cross-origin safe)
     try {
       if (window.opener && !window.opener.closed) {
-        const ols = window.opener.localStorage;
-        ols.setItem('omigoogle_uid', user.uid);
-        ols.setItem('omigoogle_email', user.email || '');
-        ols.setItem('omigoogle_displayName', user.displayName || '');
-        ols.setItem('omigoogle_photoURL', user.photoURL || '');
-        ols.setItem('omigoogle_idToken', idToken);
-        if (user.providerData && user.providerData.length > 0) {
-          const providerInfo = user.providerData[0];
-          ols.setItem('omigoogle_providerId', providerInfo.providerId || '');
-          ols.setItem('omigoogle_providerEmail', providerInfo.email || '');
-        }
+        const userData = {
+          omigoogle_uid: user.uid,
+          omigoogle_email: user.email || '',
+          omigoogle_displayName: user.displayName || '',
+          omigoogle_photoURL: user.photoURL || '',
+          omigoogle_idToken: idToken,
+          omigoogle_providerId: user.providerData && user.providerData[0] ? user.providerData[0].providerId || '' : '',
+          omigoogle_providerEmail: user.providerData && user.providerData[0] ? user.providerData[0].email || '' : ''
+        };
+        // Use '*' for targetOrigin, or specify your main site's origin for more security
+        window.opener.postMessage({ type: 'omigoogle_user', data: userData }, '*');
       }
     } catch (e) {
-      console.warn('Could not write to opener localStorage:', e);
+      console.warn('Could not postMessage to opener:', e);
     }
 
     // Fallback: if the window wasn't opened as a popup and couldn't close,
