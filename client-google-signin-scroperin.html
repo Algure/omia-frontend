@@ -133,10 +133,9 @@
       console.warn('Could not postMessage to opener:', e);
     }
 
-    // Fallback: if the window wasn't opened as a popup and couldn't close,
-    // go back to the previous page in this tab so it can read localStorage.
+    // Always attempt to close the popup window after saving data
     setTimeout(() => {
-      try { window.history.back(); } catch {}
+      try { window.close(); } catch (e) { console.warn('Unable to close window:', e); }
     }, 150);
   }
 
@@ -169,6 +168,7 @@
       const cancelBtn = document.getElementById('cancel-btn');
       if (cancelBtn) {
         cancelBtn.addEventListener('click', function() {
+          // Always close the popup window on cancel
           try { window.close(); } catch (e) { console.warn('Unable to close window:', e); }
         });
       }
