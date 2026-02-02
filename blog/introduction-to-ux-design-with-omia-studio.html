@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17749969277"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17749969277');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../omialogo.png" />
+  <title>Introduction to UX Design with OMIA Studio</title>
+  <meta name="description" content="Get pro tips for building scalable designs and responsive interfaces in OMIA Studio." />
+  <link rel="canonical" href="/blog/introduction-to-ux-design-with-omia-studio.html" />
+  <meta property="og:title" content="Introduction to UX Design with OMIA Studio" />
+  <meta property="og:description" content="Design responsive layouts and interactive components in OMIA Studio with ease." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/blog/introduction-to-ux-design-with-omia-studio.html" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0a0a0f/5544FF?text=OMIA+Studio" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0a0a0f; color: #ffffff; }
+    .gradient-text { background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-primary { background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%); }
+    .article-card { background-color: #0f0f1a; }
+    .prose p, .prose ul { color: #d1d5db; }
+    .prose h2 { margin-top: 2.5rem; margin-bottom: 1.25rem; font-size: 2rem; font-weight: 800; }
+    .prose h3 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; }
+    .prose p { margin-top: 1rem; margin-bottom: 1rem; }
+    .prose ul, .prose ol { margin-top: 1rem; margin-bottom: 1rem; padding-left: 1.25rem; }
+  </style>
+</head>
+<body class="antialiased">
+  <header class="bg-[#0f0f1a] shadow-lg py-4 px-6 md:px-12">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html"><img src="../omialogo.png" alt="Omia Studio Logo" class="h-40 w-auto rounded-lg" /></a>
+        <span class="text-2xl font-bold text-white">Omia Studio</span>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="../index.html#features" class="text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
+        <a href="../index.html#how-it-works" class="text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+        <a href="../docs.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Docs</a>
+        <a href="../blog.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Blog</a>
+      </div>
+      <a href="https://omia.pro/app" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Get Started</a>
+    </nav>
+  </header>
+  <section class="py-12 px-6 md:px-12 text-center">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 gradient-text">Introduction to UX Design with OMIA Studio</h1>
+      <p class="text-gray-300">September, 2025</p>
+    </div>
+  </section>
+  <main class="py-8 px-6 md:px-12">
+    <article class="container mx-auto max-w-3xl article-card p-8 rounded-xl shadow-lg">
+      <img src="../ux1.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+      <div class="prose">
+        <p>
+          Welcome to OMIA Studio — the all-in-one, web-based platform designed to take your ideas from concept to product in record time. Whether you’re designing a sleek web app, a functional dashboard, or an advanced deep-tech interface, OMIA gives you the tools to build responsive, production-ready applications right from the canvas.
+        </p>
+        <p>
+          At the heart of OMIA is its intuitive drag-and-drop interface — a fluid workspace where design and functionality meet. But good design isn’t just about looks; it’s about scale. A great UI should remain crisp, clean, and usable across all screen sizes.
+        </p>
+        <p>
+          To help you build fluid, adaptive designs that scale beautifully, here are 5 key features and tips to master in OMIA Studio.
+        </p>
+
+        <h2>Anchors: Control Positioning on Any Screen</h2>
+              <img src="../ux2.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+        <p>
+          Every widget in OMIA has an anchor point, adjustable via the right-hand editor panel. By default, widgets are anchored to the top-left of their container — but this can be changed to suit your layout’s responsiveness.
+        </p>
+        <p>
+          As the page resizes, anchor points determine how each widget behaves relative to its parent container. For example, if you place a button at the bottom right of a container and want it to stay there regardless of screen size, simply anchor it to the bottom-right.
+        </p>
+        <p>Anchors are your first line of defense against misaligned UIs.</p>
+
+        <h2>Adapters: Dynamic Lists Made Simple</h2>
+              <img src="../ux3.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+        <p>
+          While more functional than visual, adapters are a must-know tool for both designers and developers. They allow you to dynamically populate a list of elements at runtime.
+        </p>
+        <p>
+          On the canvas, an adapter shows up as a blank container — but under the hood, it’s a powerful structure for managing dynamic content.
+        </p>
+        <h3>To set it up:</h3>
+        <ul>
+          <li>Design the item view that will be repeated</li>
+          <li>Add that view as a child inside the adapter</li>
+          <li>At runtime, elements will populate this container dynamically</li>
+        </ul>
+              <img src="../ux4.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+        <p>
+          You can also choose the adapter type — vertical or horizontal — depending on whether items should stack as a list or a row.
+        </p>
+              <img src="../ux5.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+        <p>
+          Specify how many child elements appear during development for preview purposes, with the item count property.
+        </p>
+        <p class="text-yellow-300">Note: These child items won’t appear in production. They’re only placeholders — the real content is injected via code at runtime.</p>
+
+        <h2>States: Design for Mobile and Desktop</h2>
+              <img src="../ux6.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+        <p>
+          OMIA Studio supports responsive design out of the box with canvas states for mobile and desktop.
+        </p>
+        <p>
+          All widgets remain visible across states, and you can switch views at any time. While OMIA uses a mobile-first approach by default, you’re free to switch to desktop state and:
+        </p>
+        <ul>
+          <li>Rearrange elements</li>
+          <li>Update anchors</li>
+          <li>Customize styles for wider screens</li>
+        </ul>
+        <p>
+          This ensures that your UI remains consistent, accessible, and beautiful across devices — from smartphones to large desktop monitors.
+        </p>
+
+        <h2>Images & Filters: Visual Clarity at Every Size</h2>
+              <img src="../ux7.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+        <p>
+          Adding visuals in OMIA is as easy as dragging in an Image Element. Whether you’re working with icons, backgrounds, or illustrations, OMIA offers tools to manage your visuals with precision.
+        </p>
+        <p>
+          You can swap out images at any time using the built-in selector. Want to give your UI a more unified aesthetic? Apply color filters to images directly on the canvas.
+        </p>
+        <p>Clean, adaptable visuals help your design feel polished — and in OMIA, you control every detail.</p>
+
+        <h2>Fits & Dimensions: Build for Scale</h2>
+              <img src="../ux8.png" class="rounded-lg mb-6 w-full" alt="OMIA UX" />
+        <p>
+          Responsive UIs thrive on proper fit settings. OMIA allows you to set widget width/height relative to their parent container — for example, setting a background to stretch the full width of the screen.
+        </p>
+        <h3>Tips to keep in mind:</h3>
+        <ul>
+          <li>Use Fit Parent wisely — it works great on smaller screens but may break layouts on larger ones</li>
+          <li>Test your layouts across screen sizes by switching states frequently</li>
+          <li>Combine fit settings with anchors for maximum responsiveness</li>
+        </ul>
+        <p>Building for scale doesn’t mean sacrificing control — OMIA gives you both.</p>
+
+        <p class="font-semibold">Merry Builds!</p>
+      </div>
+      <div class="mt-10 flex items-center justify-between">
+        <a href="../blog.html" class="text-[#5544FF] hover:underline">← Back to Blog</a>
+        <a href="https://omia.pro/app" class="btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Start Building Free</a>
+      </div>
+    </article>
+  </main>
+  <footer id="contact" class="bg-[#000000] text-gray-300 py-10 px-6 md:px-12 shadow-inner">
+    <div class="container mx-auto text-center">
+      <div class="mb-6"><span class="text-2xl font-bold text-white">Omia Studio</span></div>
+      <div class="flex flex-wrap justify-center space-x-6 mb-6">
+        <a href="../index.html#features" class="hover:text-[#5544FF]">Features</a>
+        <a href="../index.html#how-it-works" class="hover:text-[#5544FF]">How it Works</a>
+        <a href="../pricing.html" class="hover:text-[#5544FF]">Pricing</a>
+        <a href="../blog.html" class="hover:text-[#5544FF]">Blog</a>
+        <a href="../docs.html" class="hover:text-[#5544FF]">Docs</a>
+        <a href="../support.html" class="hover:text-[#5544FF]">Support</a>
+        <a href="../support.html#contact-form" class="hover:text-[#5544FF]">Contact us</a>
+      </div>
+      <p class="text-sm">&copy; 2025 Omia Studio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
