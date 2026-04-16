@@ -653,6 +653,7 @@ result = await g.make_request(url, header, body, method="GET")
   \`\`\`json
   {
     "status": 200,
+    "status_code": statusCode,
     "data": { ... }
   }
   \`\`\`
@@ -662,6 +663,7 @@ result = await g.make_request(url, header, body, method="GET")
   \`\`\`json
   {
     "status": "error",
+    "status_code": statusCode,
     "data": "Error message here"
   }
   \`\`\`
