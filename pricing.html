@@ -27,6 +27,7 @@
         }
         .gradient-text {
             background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -91,11 +92,12 @@
       <div class="hidden md:flex space-x-6">
         <a href="index.html#features" class="text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
         <a href="index.html#how-it-works" class="text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+        <a href="downloads.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Downloads</a>
         <a href="index.html#contact" class="text-gray-200 hover:text-[#5544FF] font-medium">Contact</a>
       </div>
 
-      <a href="https://omia.pro/app" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
-        Get Started
+            <a href="downloads.html" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
+                Download App
       </a>
 
       <!-- Mobile menu button -->
@@ -112,12 +114,25 @@
     <div id="mobile-menu" class="mobile-menu md:hidden mt-4 space-y-4 px-6">
       <a href="index.html#features" class="block text-gray-600 hover:text-indigo-600 font-medium">Features</a>
       <a href="index.html#how-it-works" class="block text-gray-600 hover:text-indigo-600 font-medium">How it Works</a>
+      <a href="downloads.html" class="block text-gray-600 hover:text-indigo-600 font-medium">Downloads</a>
       <a href="index.html#contact" class="block text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
-      <a href="https://omia.pro/app" class="block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
-        Get Started
+            <a href="downloads.html" class="block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
+                Download App
       </a>
     </div>
   </header>
+
+     <section class="bg-[#0a0a0f] px-6 md:px-12 pt-10">
+            <div class="container mx-auto max-w-5xl">
+                    <div class="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-6 py-5 text-left shadow-lg">
+                            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Important Update</p>
+                            <h2 class="mt-2 text-2xl font-bold text-white">Web app support retires April 21, 2026</h2>
+                            <p class="mt-2 text-sm md:text-base text-gray-200">
+                                    Support for the browser-based Omia Studio app ends on April 21, 2026. Going forward, desktop is the supported way to access Omia Studio, with Pro priced at 29 USD per project per month.
+                            </p>
+                    </div>
+            </div>
+     </section>
 
    <!-- Pricing Section -->
     <section class="py-16 px-6 md:px-12 bg-[#0a0a0f]">
@@ -136,7 +151,7 @@
                     <div>
                         <h2 class="text-3xl font-bold text-white mb-4">Free</h2>
                         <p class="text-gray-200 mb-6">
-                            Build apps free, no upfront cost.
+                            Core design and development tools, no upfront cost.
                         </p>
                         <div class="mb-6">
                             <div class="text-5xl font-extrabold text-[#5544FF]">$0</div>
@@ -149,23 +164,19 @@
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                AI app generation
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                AI Copilot
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Code suggestions
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Design suggestions
+                                Visual design tools
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 Python coding
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Project exports
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Web preview and testing
                             </li>
 
                             <li class="flex items-center">
@@ -178,29 +189,12 @@
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Testing & preview
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Live deployment
-                            </li>
-
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Bring your own key
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Gemini/Claude/GPT
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-6 h-6 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                                No custom domains
+                                Shared profile across platforms
                             </li>
                         </ul>
                     </div>
-                    <a href="https://omia.pro/app#/profile" class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-lg w-full">
-                        Get Started
+                    <a href="downloads.html" class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-lg w-full">
+                        Start on Desktop
                     </a>
                 </div>
 
@@ -210,13 +204,13 @@
                     <div>
                         <h2 class="text-3xl font-bold text-white mb-4">Pro</h2>
                         <p class="text-gray-200 mb-6">
-                            For deploying live apps.
+                            AI-powered development with cloud build credits included.
                         </p>
                         <div class="mb-6">
                             
                             <div>
-                                <div class="text-5xl font-extrabold text-purple-400">$15</div>
-                                <div class="text-sm font-medium text-gray-400"> /user/mo</div>
+                                <div class="text-5xl font-extrabold text-purple-400">$29</div>
+                                <div class="text-sm font-medium text-gray-400"> /project/mo</div>
                             </div>
                         </div>
                         <ul class="text-left text-gray-200 space-y-3 mb-8">
@@ -226,7 +220,7 @@
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                100 tokens per user
+                                200 cloud credits per month
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -234,9 +228,13 @@
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Image generation
+                                AI-assisted code and design help
                             </li>
 
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Flutter mobile and desktop builds use cloud credits
+                            </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 Live CI/CD
@@ -251,14 +249,14 @@
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Analytics
+                                Custom domains and live deployment
                             </li>
 
 
                         </ul>
                     </div>
-                    <a href="https://omia.pro/app#/profile" class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-lg w-full">
-                        Get Pro Plan
+                    <a href="downloads.html" class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-lg w-full">
+                        Get on Desktop
                     </a>
                 </div>
 
@@ -314,7 +312,7 @@
 
             </div>
             <p class="text-sm text-gray-400 mt-12">
-                *All pricing is per project per month. Deployments require the Pro plan or higher. Enterprise pricing is customized per organization.
+                *All pricing is per project per month. Pro includes 200 monthly cloud credits. Flutter mobile and desktop builds consume cloud credits. Enterprise pricing is customized per organization.
             </p>
         </div>
     </section>
@@ -329,21 +327,41 @@
             <div class="space-y-4 text-left">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Can I deploy my project for free?</span>
+                        <span>Does pricing change when web app support retires?</span>
                         <svg class="w-6 h-6 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer">
-                        Yes. Free deployment means your project is available as a live web app that users can interact with. We support GitHub deployment and CI/CD.
+                        No. Pricing is unchanged. The April 21, 2026 update only retires support for the browser-based Omia Studio app and shifts the supported experience to desktop.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Can I buy more AI credits?</span>
+                        <span>Can I deploy my project for free?</span>
                         <svg class="w-6 h-6 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer">
-                        Yes. You can always purchase additional credits separately at any time.
+                        Free gives you the core editor, collaboration, exports, and previews. Live deployment, AI features, and cloud-based Flutter builds require Pro or higher.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I buy more cloud credits?</span>
+                        <svg class="w-6 h-6 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. You can purchase additional cloud credits separately at any time if your project needs more than the 200 credits included with Pro.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does the Free tier include any AI support?</span>
+                        <svg class="w-6 h-6 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-answer">
+                        No. The Free tier does not include AI support, AI Copilot access, or any included cloud credits.
                     </div>
                 </div>
 
@@ -373,7 +391,7 @@
                         <svg class="w-6 h-6 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer">
-                        The optional $5 USD add-on is charged per project per month. This add-on includes unlimited mobile builds each month, plus live production servers for web apps with customizable domains. Live web servers on this add-on are auto-scalable, with effectively zero downtime.
+                        Flutter mobile and desktop builds run on our cloud infrastructure and consume cloud credits. Pro includes 200 cloud credits each month, and you can buy more credits if your project needs additional build capacity.
                     </div>
                 </div>
 
@@ -383,7 +401,7 @@
                         <svg class="w-6 h-6 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer">
-                        Pro is charged at 15 USD per user per month.
+                        Pro is charged at 29 USD per project per month and includes 200 cloud credits each month.
                     </div>
                 </div>
             </div>
@@ -397,8 +415,8 @@
             <p class="text-lg md:text-xl mb-8 opacity-90">
                 Join the creators already bringing their ideas to life with Omia Studio.
             </p>
-            <a href="https://omia.pro/app" class="bg-white text-[#5544FF] px-8 py-3 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-gray-100">
-                Get Started Now
+            <a href="downloads.html" class="bg-white text-[#5544FF] px-8 py-3 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-gray-100">
+                Download App
             </a>
         </div>
     </section>
@@ -413,6 +431,7 @@
                 <a href="index.html#features" class="hover:text-[#5544FF]">Features</a>
                 <a href="index.html#how-it-works" class="hover:text-[#5544FF]">How it Works</a>
                 <a href="pricing.html" class="hover:text-[#5544FF]">Pricing</a>
+                <a href="downloads.html" class="hover:text-[#5544FF]">Downloads</a>
                 <a href="blog.html" class="hover:text-[#5544FF]">Blog</a>
                 <a href="support.html" class="hover:text-[#5544FF]">Support</a>
             </div>

@@ -1,0 +1,33 @@
+Subject: Mac. Windows. Mobile. Web. One project.
+
+One project. Every platform. Unparalleled smoothness on desktop.
+
+Hi {{recipient_name}},
+
+Omia now lets you design and code once, then move across macOS, Windows, mobile, and web from the same project with a faster local desktop app at the center of the workflow.
+
+The desktop experience is smoother, faster, more responsive, and built for serious work. Less browser drag. More control. More momentum. A stronger offline-capable workspace. That means unparalleled smoothness exactly where you build.
+
+Why you should move now
+- One project now drives macOS, Windows, mobile, and web from the same workflow
+- The local desktop app gives you a smoother, faster, offline-capable workspace
+- You can import your latest web project into desktop and keep moving immediately
+- Android, Windows, and Mac release flows are clearer and easier to ship
+
+Pricing is now simpler: no add-ons. Use credits for AI usage and app builds from one streamlined balance.
+
+Read the guides
+- Migration guide: https://omia.pro/blog/migrating-from-omia-web-to-local-omia-ide.html
+- Builds release guide: https://omia.pro/blog/builds-app-store-release-guide.html
+- Pricing: https://omia.pro/pricing.html
+
+Get the app now
+- Downloads: https://omia.pro/downloads.html
+
+Need help?
+- Support: https://omia.pro/support.html
+- Blog: https://omia.pro/blog.html
+
+If you want multi-platform output with unparalleled smoothness in the core editing experience, this is the release to get. Download the app and start building.
+
+Omia Studio

@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17749969277"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17749969277');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="omialogo.png"/>
+  <title>Omia Studio - Downloads</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0f;
+      color: #ffffff;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(85, 68, 255, 0.4);
+    }
+    .download-card {
+      background-color: #0f0f1a;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .download-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(85, 68, 255, 0.3);
+    }
+    .faq-item {
+      background-color: #0f0f1a;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    .faq-question {
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      margin-top: 0.75rem;
+      color: #d1d5db;
+      display: none;
+      line-height: 1.7;
+    }
+    .faq-answer.active {
+      display: block;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      margin-left: 1rem;
+      transition: transform 0.2s ease-in-out;
+    }
+    .faq-icon.rotate {
+      transform: rotate(180deg);
+    }
+    .badge-notarized {
+      background: linear-gradient(90deg, rgba(34,197,94,0.15) 0%, rgba(16,185,129,0.15) 100%);
+      border: 1px solid rgba(34,197,94,0.4);
+      color: #4ade80;
+    }
+    .badge-info {
+      background: rgba(85, 68, 255, 0.15);
+      border: 1px solid rgba(85, 68, 255, 0.4);
+      color: #a78bfa;
+    }
+    .store-pill {
+      background-color: #0f0f1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: border-color 0.2s;
+    }
+    .store-pill:hover {
+      border-color: rgba(85,68,255,0.5);
+    }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+      transition: max-height 0.5s ease-in;
+    }
+    .heads-up-card {
+      background: linear-gradient(135deg, rgba(85,68,255,0.08) 0%, rgba(118,75,162,0.08) 100%);
+      border: 1px solid rgba(85,68,255,0.25);
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Header -->
+  <header class="bg-[#0f0f1a] shadow-lg py-4 px-6 md:px-12">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="index.html">
+          <img src="omialogo.png" alt="Omia Studio Logo" class="h-40 w-auto rounded-lg">
+        </a>
+        <span class="text-2xl font-bold text-white">Omia Studio</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html#features" class="text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
+        <a href="index.html#how-it-works" class="text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+        <a href="docs.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Docs</a>
+        <a href="downloads.html" class="text-white font-medium">Downloads</a>
+        <a href="index.html#contact" class="text-gray-200 hover:text-[#5544FF] font-medium">Contact</a>
+      </div>
+
+      <a href="#download-options" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
+        View Downloads
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="md:hidden text-gray-200 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden mt-4 space-y-4 px-6">
+      <a href="index.html#features" class="block text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
+      <a href="index.html#how-it-works" class="block text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+      <a href="docs.html" class="block text-gray-200 hover:text-[#5544FF] font-medium">Docs</a>
+      <a href="downloads.html" class="block text-white font-medium">Downloads</a>
+      <a href="index.html#contact" class="block text-gray-200 hover:text-[#5544FF] font-medium">Contact</a>
+      <a href="#download-options" class="block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
+        View Downloads
+      </a>
+    </div>
+  </header>
+
+  <section class="bg-[#0a0a0f] px-6 md:px-12 pt-10">
+    <div class="container mx-auto max-w-4xl">
+      <div class="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-6 py-5 text-left shadow-lg">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Important Update</p>
+        <h2 class="mt-2 text-2xl font-bold text-white">Web app support retires April 21, 2026</h2>
+        <p class="mt-2 text-sm md:text-base text-gray-200">
+          We're retiring support for the Omia Studio web app on April 21, 2026. Use the desktop app on macOS or Windows for the fully supported experience going forward.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="bg-[#0a0a0f] py-20 px-6 md:px-12 text-center">
+    <div class="container mx-auto max-w-3xl">
+      <p class="text-sm uppercase tracking-[0.28em] text-[#a78bfa] font-semibold mb-4">One Project, All Platforms</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        Download <span class="gradient-text">Omia Studio</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-4">
+        Use one Omia Studio project to design, code, and manage macOS, Windows, mobile, and web outputs from the same workflow.
+      </p>
+      <p class="text-sm text-gray-400 max-w-2xl mx-auto">
+        Support for the browser-based Omia Studio editor ends on April 21, 2026. The desktop app is the supported workspace, while your profile continues to power builds and outputs across all supported platforms.
+      </p>
+      <p class="mt-4 text-sm text-gray-300 max-w-2xl mx-auto">
+        These direct downloads are our early release channel: you get the latest supported desktop builds first, with faster iteration ahead of App Store packaging.
+      </p>
+    </div>
+  </section>
+
+  <!-- Download Cards Section -->
+  <section id="download-options" class="py-12 px-6 md:px-12 bg-[#050508]">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- macOS Card -->
+        <div class="download-card rounded-2xl p-8 flex flex-col">
+          <!-- Platform icon + title -->
+          <div class="flex items-center space-x-4 mb-6">
+            <div class="bg-[#1a1a2e] p-4 rounded-xl">
+              <!-- Apple logo SVG -->
+              <svg class="w-10 h-10 text-gray-200" viewBox="0 0 814 1000" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 134.4-317.3 266.7-317.3 100.3 0 183.5 66.2 244.7 66.2 56.8 0 146.5-70.5 257.3-70.5zM568.3 167.9C588.5 142.7 602 109.3 602 76c0-5.2-.4-10.4-1.3-14.4-23.9 1-52.3 15.9-71.4 38.9-18.1 21.4-34.5 56.2-34.5 90.1 0 5.5.6 11 .8 12.8 2 .2 5.2.4 8.4.4 22.4 0 48.5-15.2 63.3-39.9z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-white">macOS</h2>
+              <p class="text-gray-400 text-sm">macOS 12 Monterey or later</p>
+            </div>
+          </div>
+
+          <!-- Badges -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="badge-notarized text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              Apple Notarized
+            </span>
+            <span class="badge-info text-xs font-semibold px-3 py-1 rounded-full">.dmg Installer</span>
+            <span class="badge-info text-xs font-semibold px-3 py-1 rounded-full">Early Release</span>
+          </div>
+
+          <p class="text-gray-300 text-sm mb-8 leading-relaxed">
+            The macOS build has been notarized by Apple for secure distribution. Download the <code class="bg-[#1a1a2e] px-1.5 py-0.5 rounded text-purple-300">.dmg</code>, drag <code class="bg-[#1a1a2e] px-1.5 py-0.5 rounded text-purple-300">omiadesktop</code> to your Applications folder, and launch it from there.
+          </p>
+
+          <div class="mt-auto space-y-3">
+            <a href="apps/OMIA.dmg" download class="btn-primary w-full flex items-center justify-center gap-2 text-white py-3 rounded-xl font-semibold shadow-md">
+              <!-- Download icon -->
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download DMG (156 MB)
+            </a>
+            <!-- Mac App Store coming soon -->
+            <div class="store-pill rounded-xl px-4 py-3 flex items-center gap-3">
+              <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p class="text-sm font-medium text-gray-200">Mac App Store</p>
+                <p class="text-xs text-gray-500">Coming soon — we'll inform users as soon as the listing is live</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Windows Card -->
+        <div class="download-card rounded-2xl p-8 flex flex-col">
+          <!-- Platform icon + title -->
+          <div class="flex items-center space-x-4 mb-6">
+            <div class="bg-[#1a1a2e] p-4 rounded-xl">
+              <!-- Windows logo SVG -->
+              <svg class="w-10 h-10 text-blue-400" viewBox="0 0 88 88" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 12.402l35.687-4.87.016 34.423-35.67.203zm35.67 33.529l.028 34.453L.028 75.48.026 45.7zm4.326-39.025L87.314 0v41.527l-47.318.376zm47.329 39.349l-.011 41.354-47.318-6.651-.066-34.803z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-white">Windows</h2>
+              <p class="text-gray-400 text-sm">Windows 10 or later (64-bit)</p>
+            </div>
+          </div>
+
+          <!-- Badges -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="badge-info text-xs font-semibold px-3 py-1 rounded-full">Flutter Build</span>
+            <span class="badge-info text-xs font-semibold px-3 py-1 rounded-full">.zip Archive</span>
+            <span class="badge-info text-xs font-semibold px-3 py-1 rounded-full">Early Release</span>
+          </div>
+
+          <p class="text-gray-300 text-sm mb-8 leading-relaxed">
+            This is the zipped Flutter executable build for Windows. Extract the archive, open the folder, and run <code class="bg-[#1a1a2e] px-1.5 py-0.5 rounded text-purple-300">omiadesktop.exe</code>.
+          </p>
+
+          <div class="mt-auto space-y-3">
+            <a href="apps/WindowsRelease.zip" download class="btn-primary w-full flex items-center justify-center gap-2 text-white py-3 rounded-xl font-semibold shadow-md">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download ZIP (277 MB)
+            </a>
+            <!-- Microsoft Store coming soon -->
+            <div class="store-pill rounded-xl px-4 py-3 flex items-center gap-3">
+              <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p class="text-sm font-medium text-gray-200">Microsoft Store</p>
+                <p class="text-xs text-gray-500">Coming soon — we'll inform users as soon as the listing is live</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 heads-up-card rounded-2xl p-6 text-center">
+        <p class="text-white text-sm font-semibold uppercase tracking-[0.2em]">Early Release Channel</p>
+        <p class="mt-3 text-gray-300 text-sm leading-relaxed max-w-2xl mx-auto">
+          The current macOS and Windows downloads are our direct early release builds. They deliver the newest supported desktop workflow first, with regular updates and store packaging following later.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heads-up / FAQ Section -->
+  <section class="py-16 px-6 md:px-12 bg-[#0a0a0f]">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-bold text-center mb-3 gradient-text">Good to Know</h2>
+      <p class="text-center text-gray-400 mb-10 text-sm">Common questions about installing and running Omia Studio on desktop.</p>
+
+      <!-- FAQ Items -->
+
+      <!-- macOS Keychain -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Are these desktop downloads early releases?</span>
+          <svg class="w-5 h-5 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. These direct downloads are our early release channel, which means they receive the latest supported desktop updates before App Store distribution. Expect the core product and workflow you need, plus faster iteration as new releases ship.</p>
+        </div>
+      </div>
+
+      <!-- macOS Keychain -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Why does the Mac app ask for Keychain access?</span>
+          <svg class="w-5 h-5 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>Omia Studio uses <strong class="text-white">Firebase</strong> for secure user authentication. The Firebase desktop library stores your authentication credentials (login tokens) in your Mac's Keychain — the same system Apple uses to protect your passwords and certificates. This means your session data is encrypted and isolated to your account, and is never stored in plain text on disk.</p>
+          <p class="mt-2">You will only see the Keychain prompt on first launch or after an OS security update. It is completely safe to allow access.</p>
+        </div>
+      </div>
+
+      <!-- Windows unknown publisher -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Windows shows an "Unknown Publisher" warning — is this safe?</span>
+          <svg class="w-5 h-5 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>Yes — this is expected behaviour for the ZIP download. The Windows SmartScreen warning appears because this is the <strong class="text-white">raw Flutter executable archive</strong>, distributed without an embedded code-signing certificate. This is the same format we provide when you trigger a Windows build from within the IDE.</p>
+          <p class="mt-2">If you would like extra peace of mind, you are welcome to run a targeted antivirus scan (e.g. ClamAV, Windows Defender, Malwarebytes) on the extracted files before launching.</p>
+          <p class="mt-2">To bypass the warning entirely, click <em class="text-gray-200">"More info" → "Run anyway"</em> on the SmartScreen dialog. We are actively publishing to the <strong class="text-white">Microsoft Store</strong>, which will provide the necessary certificate inside an embedded MSIX package and eliminate this prompt once the store version is live.</p>
+        </div>
+      </div>
+
+      <!-- Does AI work locally? -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Does the AI work locally on my machine?</span>
+          <svg class="w-5 h-5 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>No. The Omia AI agent requires significant compute power and is entirely <strong class="text-white">cloud-hosted</strong>. We do not want AI workloads slowing down your PC, so inference runs on our servers while your local app stays responsive.</p>
+        </div>
+      </div>
+
+      <!-- Are builds run locally? -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Are app builds run on my PC?</span>
+          <svg class="w-5 h-5 text-gray-500 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>It depends on the build type:</p>
+          <ul class="mt-3 space-y-2 list-none">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong class="text-white">Web builds</strong> — Generated locally, entirely on your PC, at no charge.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong class="text-white">Project exports</strong> — Export your project at no charge to open it on another PC running the Omia IDE.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong class="text-white">GitHub Pages sharing</strong> — Share your project designs by connecting the required Personal Access Token. Your token stays secure and remains inaccessible to us.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span><strong class="text-white">Flutter mobile &amp; desktop builds</strong> — Compiled on our cloud servers and require cloud credits, ensuring consistent, fast build times regardless of your local hardware.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-[#5544FF] text-white py-16 px-6 md:px-12 text-center rounded-t-3xl shadow-2xl">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Move to the Desktop App</h2>
+      <p class="text-lg md:text-xl mb-8 opacity-90">
+        Web app support retires on April 21, 2026. Download Omia Studio for the supported macOS or Windows experience.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#download-options" class="bg-white text-[#5544FF] px-8 py-3 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-gray-100">
+          View Downloads
+        </a>
+        <a href="support.html" class="border-2 border-white text-white px-8 py-3 rounded-xl font-bold text-lg hover:bg-white hover:text-[#5544FF] transition-colors">
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-[#000000] text-gray-300 py-10 px-6 md:px-12 shadow-inner">
+    <div class="container mx-auto text-center">
+      <div class="mb-6">
+        <span class="text-2xl font-bold text-white">Omia Studio</span>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
+        <a href="index.html#features" class="hover:text-[#5544FF]">Features</a>
+        <a href="index.html#how-it-works" class="hover:text-[#5544FF]">How it Works</a>
+        <a href="pricing.html" class="hover:text-[#5544FF]">Pricing</a>
+        <a href="downloads.html" class="hover:text-[#5544FF]">Downloads</a>
+        <a href="blog.html" class="hover:text-[#5544FF]">Blog</a>
+        <a href="support.html" class="hover:text-[#5544FF]">Support</a>
+      </div>
+      <p class="text-sm">&copy; 2025 Omia Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    });
+
+    // FAQ accordion
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector('.faq-icon');
+          answer.classList.toggle('active');
+          icon.classList.toggle('rotate');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

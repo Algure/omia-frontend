@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17749969277"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17749969277');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../omialogo.png" />
+  <title>Move Your Project from OMIA Web to the Local OMIA IDE</title>
+  <meta name="description" content="Export your latest OMIA web project build from the preview page and import it into the local OMIA IDE for faster, more interactive, and more secure desktop development." />
+  <link rel="canonical" href="/blog/migrating-from-omia-web-to-local-omia-ide.html" />
+  <meta property="og:title" content="Move Your Project from OMIA Web to the Local OMIA IDE" />
+  <meta property="og:description" content="Export the latest version of your OMIA web project, import the zip into the desktop dashboard, and keep building locally with speed, interactivity, and control." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/blog/migrating-from-omia-web-to-local-omia-ide.html" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0a0a0f/5544FF?text=OMIA+Migration" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0a0a0f; color: #ffffff; }
+    .gradient-text { background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-primary { background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%); transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(85, 68, 255, 0.4); }
+    .article-card { background-color: #0f0f1a; }
+    .info-card { background: linear-gradient(180deg, rgba(85, 68, 255, 0.16), rgba(118, 75, 162, 0.08)); border: 1px solid rgba(148, 163, 184, 0.18); }
+    .prose h2 { margin-top: 2.75rem; margin-bottom: 1rem; font-size: 2rem; font-weight: 800; }
+    .prose h3 { margin-top: 1.75rem; margin-bottom: 0.75rem; font-size: 1.4rem; font-weight: 700; }
+    .prose p { margin-top: 1rem; margin-bottom: 1rem; color: #d1d5db; }
+    .prose ul { list-style: disc; padding-left: 1.25rem; margin-top: 1rem; margin-bottom: 1rem; color: #d1d5db; }
+    .prose ol { padding-left: 1.25rem; margin-top: 1rem; margin-bottom: 1rem; color: #d1d5db; }
+    .prose li { margin-top: 0.5rem; }
+  </style>
+</head>
+<body class="antialiased">
+  <header class="bg-[#0f0f1a] shadow-lg py-4 px-6 md:px-12">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html"><img src="../omialogo.png" alt="Omia Studio Logo" class="h-40 w-auto rounded-lg" /></a>
+        <span class="text-2xl font-bold text-white">Omia Studio</span>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="../index.html#features" class="text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
+        <a href="../index.html#how-it-works" class="text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+        <a href="../docs.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Docs</a>
+        <a href="../blog.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Blog</a>
+      </div>
+      <a href="../downloads.html" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Download App</a>
+      <button id="menu-btn" class="md:hidden text-gray-200 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu md:hidden mt-4 space-y-4 px-6">
+      <a href="../index.html#features" class="block text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
+      <a href="../index.html#how-it-works" class="block text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+      <a href="../docs.html" class="block text-gray-200 hover:text-[#5544FF] font-medium">Docs</a>
+      <a href="../blog.html" class="block text-gray-200 hover:text-[#5544FF] font-medium">Blog</a>
+      <a href="../downloads.html" class="block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Download App</a>
+    </div>
+  </header>
+
+  <section class="px-6 md:px-12 pt-10 bg-[#0a0a0f]">
+    <div class="container mx-auto max-w-4xl">
+      <div class="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-6 py-5 text-left shadow-lg">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Important Update</p>
+        <h2 class="mt-2 text-2xl font-bold text-white">Web app support retires April 21, 2026</h2>
+        <p class="mt-2 text-sm md:text-base text-gray-200">
+          We're retiring support for the Omia Studio web app on April 21, 2026. The local OMIA IDE on macOS and Windows is the supported experience going forward.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 px-6 md:px-12 text-center">
+    <div class="container mx-auto max-w-4xl">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">Migration Guide</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 gradient-text">Move Your Project from OMIA Web to the Local OMIA IDE</h1>
+      <p class="text-gray-300">April 16, 2026 • 4 min read</p>
+    </div>
+  </section>
+
+  <main class="py-8 px-6 md:px-12">
+    <article class="container mx-auto max-w-3xl article-card p-8 rounded-xl shadow-lg">
+      <img src="article_imgs/exportpreview.jpg" alt="OMIA web preview with export options open" class="rounded-lg mb-6 w-full h-auto" />
+
+      <div class="info-card rounded-2xl p-6 mb-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200">Fast Track</p>
+        <p class="mt-3 text-lg text-white">Export from the web project preview. Import into the desktop dashboard. Keep your latest build moving with more speed, deeper interactivity, and tighter local control.</p>
+      </div>
+
+      <div class="prose">
+        <p>Your web project does not have to stop when web support retires. If you have been building in OMIA on the web, you can move the latest version of your project into the local OMIA IDE in minutes and continue working with a faster, more responsive, and more secure local workflow.</p>
+
+        <p>This migration flow is built for momentum. Export the latest build from your project preview, bring the zip into the desktop dashboard, and your design and code come across ready to run.</p>
+
+        <h2>Start from the web project preview</h2>
+        <p>Open the web app at <a href="https://omia.pro/app" target="_blank" rel="noopener">omia.pro/app</a>, then open the project you want to move.</p>
+        <p>Open the preview page for the web project you want to move. On that preview page, open the dropdown menu, choose <strong>Export</strong>, and then trigger the build with the arrow button.</p>
+        <p>The exported zip should be ready to download in a few moments. Once it appears, download it locally and keep it handy for the import step.</p>
+        <img src="article_imgs/exportpreview.jpg" alt="Export options in the OMIA web preview" class="rounded-lg my-6 w-full h-auto" />
+
+        <h2>Import the zip into the local desktop dashboard</h2>
+        <p>Launch the local OMIA IDE and open your desktop dashboard. Click the large plus button. That reveals a dropdown with the <strong>Import ZIP</strong> option.</p>
+        <p>Choose <strong>Import ZIP</strong>, select the exported zip from your web build, and let OMIA pull the project into your local workspace.</p>
+        <img src="article_imgs/importbtndash.jpg" alt="Desktop dashboard showing the Import Project ZIP option" class="rounded-lg my-6 w-full h-auto" />
+
+        <h2>Using your previous email on desktop</h2>
+        <p>If you want to continue in the local app with the same email you used on the web app, sign in with that same email address. If your previous authentication was done with Google and you need a desktop password, use the password reset flow from the desktop app.</p>
+        <p>Request a password reset in the desktop app, open the reset link sent to your email, and set a password there. Check your spam folder if the email does not show up right away.</p>
+
+        <h2>Important sync note</h2>
+        <p>Logging into the desktop app does not automatically download your existing web projects to your local machine. Projects only come into the local app when you explicitly export them from the web experience and import the zip into the desktop dashboard.</p>
+
+        <h2>What happens after import</h2>
+        <p>Once the import completes, your designs and code should be live and interactive inside the local OMIA IDE. You are not starting over. You are picking up the latest exported state of the project and continuing with the desktop workflow.</p>
+        <img src="article_imgs/importedproject.jpg" alt="Imported OMIA project opened in the desktop IDE" class="rounded-lg my-6 w-full h-auto" />
+        <ul>
+          <li>Your latest exported design layout comes over into the local workspace.</li>
+          <li>Your latest exported code comes over with it.</li>
+          <li>The imported project is ready for local iteration, preview, and supported desktop development.</li>
+        </ul>
+
+        <h2>Important limitation</h2>
+        <p>Only the most recent commit is exported in this migration flow. Full commit history is not included in the exported zip, so plan this as a handoff of the latest project state rather than a repository history transfer.</p>
+
+        <h2>Why move now</h2>
+        <p>The local OMIA IDE is where the platform opens up. You get sharper responsiveness, stronger local control, and a development environment built for sustained work instead of browser constraints.</p>
+        <p>Move over and experience unparalleled speed, richer interactivity, and secure control over your next phase of development.</p>
+
+        <h2>One clean move, full momentum</h2>
+        <p>If your project matters, move it where it can run faster and grow with fewer limits. Export the latest build from the web preview, import it into the local OMIA IDE, and keep building without losing your stride.</p>
+      </div>
+
+      <div class="mt-10 flex items-center justify-between">
+        <a href="../blog.html" class="text-[#5544FF] hover:underline">← Back to Blog</a>
+        <a href="../downloads.html" class="btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Download App</a>
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact" class="bg-[#000000] text-gray-300 py-10 px-6 md:px-12 shadow-inner">
+    <div class="container mx-auto text-center">
+      <div class="mb-6"><span class="text-2xl font-bold text-white">Omia Studio</span></div>
+      <div class="flex flex-wrap justify-center space-x-6 mb-6">
+        <a href="../index.html#features" class="hover:text-[#5544FF]">Features</a>
+        <a href="../index.html#how-it-works" class="hover:text-[#5544FF]">How it Works</a>
+        <a href="../pricing.html" class="hover:text-[#5544FF]">Pricing</a>
+        <a href="../blog.html" class="hover:text-[#5544FF]">Blog</a>
+        <a href="../docs.html" class="hover:text-[#5544FF]">Docs</a>
+        <a href="../support.html" class="hover:text-[#5544FF]">Support</a>
+      </div>
+      <p class="text-sm">&copy; 2025 Omia Studio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

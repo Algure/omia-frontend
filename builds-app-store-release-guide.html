@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17749969277"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17749969277');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="omialogo.png" />
+  <title>Builds App Store Release Guide</title>
+  <meta name="description" content="A release guide for OMIA Android, Windows, and Mac builds, including keystore handling, SHA-256 extraction, Windows packaging, and Apple signing and notarization steps." />
+  <link rel="canonical" href="/builds-app-store-release-guide.html" />
+  <meta property="og:title" content="Builds App Store Release Guide" />
+  <meta property="og:description" content="Understand how OMIA build artifacts are packaged for Android, Windows, and Mac, and how to prepare them for store or direct distribution." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="/builds-app-store-release-guide.html" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0a0a0f/5544FF?text=OMIA+Release+Guide" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0a0a0f; color: #ffffff; }
+    .gradient-text { background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-primary { background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%); transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(85, 68, 255, 0.4); }
+    .article-card { background-color: #0f0f1a; }
+    .info-card { background: linear-gradient(180deg, rgba(85, 68, 255, 0.16), rgba(118, 75, 162, 0.08)); border: 1px solid rgba(148, 163, 184, 0.18); }
+    .prose h2 { margin-top: 2.75rem; margin-bottom: 1rem; font-size: 2rem; font-weight: 800; }
+    .prose h3 { margin-top: 1.75rem; margin-bottom: 0.75rem; font-size: 1.4rem; font-weight: 700; }
+    .prose p { margin-top: 1rem; margin-bottom: 1rem; color: #d1d5db; }
+    .prose ul { list-style: disc; padding-left: 1.25rem; margin-top: 1rem; margin-bottom: 1rem; color: #d1d5db; }
+    .prose ol { padding-left: 1.25rem; margin-top: 1rem; margin-bottom: 1rem; color: #d1d5db; }
+    .prose li { margin-top: 0.5rem; }
+    .prose a { color: #a78bfa; text-decoration: underline; }
+    .prose pre { margin-top: 1.25rem; margin-bottom: 1.25rem; padding: 1rem; border-radius: 0.75rem; background-color: #090914; overflow-x: auto; color: #e5e7eb; }
+    .prose code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+  </style>
+</head>
+<body class="antialiased">
+  <header class="bg-[#0f0f1a] shadow-lg py-4 px-6 md:px-12">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="index.html"><img src="omialogo.png" alt="Omia Studio Logo" class="h-40 w-auto rounded-lg" /></a>
+        <span class="text-2xl font-bold text-white">Omia Studio</span>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html#features" class="text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
+        <a href="index.html#how-it-works" class="text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+        <a href="docs.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Docs</a>
+        <a href="blog.html" class="text-gray-200 hover:text-[#5544FF] font-medium">Blog</a>
+      </div>
+      <a href="downloads.html" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Download App</a>
+      <button id="menu-btn" class="md:hidden text-gray-200 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu md:hidden mt-4 space-y-4 px-6">
+      <a href="index.html#features" class="block text-gray-200 hover:text-[#5544FF] font-medium">Features</a>
+      <a href="index.html#how-it-works" class="block text-gray-200 hover:text-[#5544FF] font-medium">How it Works</a>
+      <a href="docs.html" class="block text-gray-200 hover:text-[#5544FF] font-medium">Docs</a>
+      <a href="blog.html" class="block text-gray-200 hover:text-[#5544FF] font-medium">Blog</a>
+      <a href="downloads.html" class="block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Download App</a>
+    </div>
+  </header>
+
+  <section class="px-6 md:px-12 pt-10 bg-[#0a0a0f]">
+    <div class="container mx-auto max-w-4xl">
+      <div class="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-6 py-5 text-left shadow-lg">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Important Update</p>
+        <h2 class="mt-2 text-2xl font-bold text-white">Web app support retires April 21, 2026</h2>
+        <p class="mt-2 text-sm md:text-base text-gray-200">
+          We're retiring support for the Omia Studio web app on April 21, 2026. The local OMIA IDE on macOS and Windows is the supported experience going forward.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 px-6 md:px-12 text-center">
+    <div class="container mx-auto max-w-4xl">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-indigo-300">Release Guide</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 gradient-text">Builds App Store Release Guide</h1>
+      <p class="text-gray-300">April 16, 2026 • 7 min read</p>
+    </div>
+  </section>
+
+  <main class="py-8 px-6 md:px-12">
+    <article class="container mx-auto max-w-3xl article-card p-8 rounded-xl shadow-lg">
+      <img src="codes.png" alt="OMIA builds release guide" class="rounded-lg mb-6 w-full h-auto" />
+
+      <div class="info-card rounded-2xl p-6 mb-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200">Release Facts</p>
+        <p class="mt-3 text-lg text-white">Build details and downloadable artifacts remain in OMIA cloud storage for up to 7 days after completion. Every OMIA build is a Flutter app generated with the latest stable libraries available in our pipeline at build time.</p>
+      </div>
+
+      <div class="prose">
+        <p>This guide explains how OMIA build outputs are prepared for Android, Windows, and Mac release workflows. It covers what files you receive, what security details are exposed in the build interface, and what you still need to do before public distribution.</p>
+
+        <h2>Android</h2>
+        <p>Android builds are released as <strong>AAB/APK</strong> outputs together with the keystore details used for that build and the downloadable <strong>keystore.jks</strong> file. After the build completes, those details become visible from the dropdown inside the build card, along with the package name.</p>
+        <p>Your <strong>keystore.properties</strong> values are double encrypted in transit and on our servers and are only decrypted for display in your interface.</p>
+
+        <h3>What you receive after the build finishes</h3>
+        <ul>
+          <li>The generated AAB or APK artifact.</li>
+          <li>The package name used for the build.</li>
+          <li>The keystore details shown in the build-card dropdown.</li>
+          <li>The keystore.jks file for store signing and verification workflows.</li>
+        </ul>
+
+        <h3>How to extract the SHA-256 fingerprint</h3>
+        <p>You can extract the signing certificate fingerprint for Play Console or other Android store integrations with the <strong>keystore.jks</strong> file and the values from <strong>keystore.properties</strong>. The safest workflow is to read the alias from the properties file and let <strong>keytool</strong> prompt you for the store password instead of placing secrets directly in your shell history.</p>
+        <pre><code>keytool -list -v \
+  -keystore "/path/to/keystore.jks" \
+  -alias "YOUR_KEY_ALIAS"</code></pre>
+        <p>When prompted, enter the store password from your <strong>keystore.properties</strong> file. The output includes the <strong>SHA256</strong> fingerprint you can paste into the Android store or API provider that requires it.</p>
+
+        <h3>Installing APKs directly on Android devices</h3>
+        <p>APK builds can be installed directly on Android devices by approving the standard platform warning for installs from outside the Play Store. The exact wording varies by device vendor, but it usually means enabling installation from the current browser, file manager, or installer and then confirming the install.</p>
+        <p>OMIA runs antivirus checks as part of the build process, and most APK installer flows already include their own scanning or Play Protect-style checks. If you want additional assurance, you can run the APK through a trusted targeted antivirus tool before distribution or local installation.</p>
+
+        <h2>Windows</h2>
+        <p>Windows builds are delivered as zipped Flutter unsigned executable outputs. You can use the included executable as-is for direct distribution, or use it as the basis for packaging into <strong>MSI</strong>, <strong>MSIX</strong>, or other Windows installer formats.</p>
+        <p>For the most up-to-date packaging workflow, refer to the Microsoft Windows packaging documentation: <a href="https://learn.microsoft.com/en-us/windows/msix/packaging-tool/tool-overview" target="_blank" rel="noopener">Windows MSIX Packaging Tool Overview</a>.</p>
+
+        <h3>What to expect when launching the EXE</h3>
+        <p>Most Windows systems will launch the generated executable with minimal blockers. On some systems, SmartScreen or third-party antivirus tools may warn on first launch because the build is an unsigned executable. Those warnings are environment-specific rather than evidence of malicious content.</p>
+        <p>If your distribution target requires cleaner install UX, package the executable into a signed MSI or MSIX release before shipping it publicly.</p>
+
+        <h2>Mac Builds</h2>
+        <p>Mac builds require notarization for the smoothest launch experience on end-user devices. For public distribution, you need an active Apple Developer account and a valid signing identity. For local testing, macOS can still open an unsigned or unnotarized app if the user explicitly allows it from the <strong>Privacy &amp; Security</strong> section of System Settings.</p>
+        <p>OMIA provides Mac builds as a zip containing the <strong>.app</strong> bundle plus the <strong>Release.entitlements</strong> file. That gives you what you need to sign the app with sandboxing enabled and then package it into a DMG or PKG for release.</p>
+
+        <h3>Sanitized signing and notarization commands</h3>
+        <p>Use placeholders for your application name and Apple credentials. Replace each placeholder with your own values before running the commands.</p>
+        <pre><code>codesign --deep --force --verify --verbose \
+  --sign "Developer ID Application: YOUR_COMPANY_NAME (YOUR_TEAM_ID)" \
+  --timestamp \
+  --options runtime \
+  --entitlements "Release.entitlements" \
+  "YourApp.app"
+
+hdiutil create -volname "YourApp" \
+  -srcfolder "YourApp.app" \
+  -ov -format UDZO \
+  "YourApp.dmg"
+
+xcrun notarytool submit "YourApp.dmg" \
+  --apple-id "YOUR_APPLE_ID" \
+  --team-id "YOUR_TEAM_ID" \
+  --password "YOUR_APP_SPECIFIC_PASSWORD" \
+  --wait
+
+xcrun stapler staple "YourApp.dmg"</code></pre>
+
+        <h3>Mac release notes</h3>
+        <p>If you run into notarization problems, use Apple's notarization troubleshooting reference: <a href="https://developer.apple.com/documentation/security/resolving-common-notarization-issues#3087733" target="_blank" rel="noopener">Resolving common notarization issues</a>.</p>
+        <ul>
+          <li>Use your own Developer ID certificate for distribution.</li>
+          <li>Keep the provided <strong>Release.entitlements</strong> file aligned with the app you are signing.</li>
+          <li>DMG is usually the simplest format for direct distribution, while PKG may fit managed enterprise environments better.</li>
+          <li>If you skip notarization during internal testing, users can still allow the app manually from System Settings, but that is not ideal for production release.</li>
+        </ul>
+
+        <h2>Release retention and security summary</h2>
+        <ul>
+          <li>Build details and stored artifacts are retained in OMIA cloud storage for up to 7 days.</li>
+          <li>All builds are Flutter apps generated against the latest stable libraries in the active build pipeline.</li>
+          <li>Android keystore properties are double encrypted in transit and at rest and only decrypted for your interface.</li>
+          <li>OMIA runs antivirus checks during build processing, but you can still run a trusted targeted scanner before distribution if your release workflow requires it.</li>
+        </ul>
+
+        <h2>Final release checklist</h2>
+        <ol>
+          <li>Download your build artifacts and any signing files before the 7-day retention window expires.</li>
+          <li>Verify package names, keystore details, and release metadata inside the build-card dropdown.</li>
+          <li>For Android, extract the SHA-256 fingerprint before connecting store or API integrations.</li>
+          <li>For Windows, decide whether direct EXE delivery is enough or whether you need MSI or MSIX packaging.</li>
+          <li>For Mac, sign, notarize, and staple the DMG before public distribution.</li>
+        </ol>
+      </div>
+
+      <div class="mt-10 flex items-center justify-between">
+        <a href="blog.html" class="text-[#5544FF] hover:underline">← Back to Blog</a>
+        <a href="downloads.html" class="btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">Download App</a>
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact" class="bg-[#000000] text-gray-300 py-10 px-6 md:px-12 shadow-inner">
+    <div class="container mx-auto text-center">
+      <div class="mb-6"><span class="text-2xl font-bold text-white">Omia Studio</span></div>
+      <div class="flex flex-wrap justify-center space-x-6 mb-6">
+        <a href="index.html#features" class="hover:text-[#5544FF]">Features</a>
+        <a href="index.html#how-it-works" class="hover:text-[#5544FF]">How it Works</a>
+        <a href="pricing.html" class="hover:text-[#5544FF]">Pricing</a>
+        <a href="blog.html" class="hover:text-[#5544FF]">Blog</a>
+        <a href="docs.html" class="hover:text-[#5544FF]">Docs</a>
+        <a href="support.html" class="hover:text-[#5544FF]">Support</a>
+      </div>
+      <p class="text-sm">&copy; 2025 Omia Studio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

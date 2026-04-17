@@ -26,6 +26,7 @@
         }
         .gradient-text {
             background: linear-gradient(90deg, #5544FF 0%, #764ba2 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -64,8 +65,8 @@
         <a href="index.html#contact" class="text-gray-200 hover:text-[#5544FF] font-medium">Contact</a>
       </div>
 
-      <a href="https://omia.pro/app" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
-        Get Started
+            <a href="downloads.html" class="hidden md:block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
+                Download App
       </a>
 
       <!-- Mobile menu button -->
@@ -83,11 +84,23 @@
       <a href="index.html#features" class="block text-gray-600 hover:text-indigo-600 font-medium">Features</a>
       <a href="index.html#how-it-works" class="block text-gray-600 hover:text-indigo-600 font-medium">How it Works</a>
       <a href="index.html#contact" class="block text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
-      <a href="https://omia.pro/app" class="block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
-        Get Started
+            <a href="downloads.html" class="block btn-primary text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg">
+                Download App
       </a>
     </div>
   </header>
+
+        <section class="bg-[#0a0a0f] px-6 md:px-12 pt-10">
+                <div class="container mx-auto max-w-5xl">
+                        <div class="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-6 py-5 text-left shadow-lg">
+                                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Important Update</p>
+                                <h2 class="mt-2 text-2xl font-bold text-white">Web app support retires April 21, 2026</h2>
+                                <p class="mt-2 text-sm md:text-base text-gray-200">
+                                        We're retiring support for the Omia Studio web app on April 21, 2026. Download the desktop app for the supported experience going forward.
+                                </p>
+                        </div>
+                </div>
+        </section>
 
     <!-- Blog Hero Section -->
         <!-- Blog Hero Section -->
@@ -106,6 +119,34 @@
     <section class="py-16 px-6 md:px-12 bg-[#050508]">
         <div class="container mx-auto max-w-5xl">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post: Builds App Store Release Guide -->
+                <div class="bg-[#0f0f1a] p-6 rounded-xl card-shadow flex flex-col border border-indigo-400/20">
+                    <img src="codes.png" alt="OMIA builds release guide for Android, Windows, and Mac" class="rounded-lg mb-4 w-full h-auto">
+                    <div class="mb-3">
+                        <span class="inline-flex rounded-full bg-indigo-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">Release Guide</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Builds App Store Release Guide</h3>
+                    <p class="text-gray-400 text-sm mb-4">April, 2026</p>
+                    <p class="text-gray-200 mb-4 flex-grow">
+                        Learn how OMIA build outputs are packaged for Android, Windows, and Mac, including keystore handling, SHA-256 extraction, notarization, and release packaging.
+                    </p>
+                    <a href="blog/builds-app-store-release-guide.html" class="text-[#5544FF] font-medium hover:underline mt-auto">Read Article &rarr;</a>
+                </div>
+
+                <!-- Blog Post: Migration from Web to Local IDE -->
+                <div class="bg-[#0f0f1a] p-6 rounded-xl card-shadow flex flex-col border border-amber-400/20">
+                    <img src="codes.png" alt="Move projects from OMIA web to local OMIA IDE" class="rounded-lg mb-4 w-full h-auto">
+                    <div class="mb-3">
+                        <span class="inline-flex rounded-full bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Migration Guide</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Move Your Project from OMIA Web to the Local OMIA IDE</h3>
+                    <p class="text-gray-400 text-sm mb-4">April, 2026</p>
+                    <p class="text-gray-200 mb-4 flex-grow">
+                        Export the latest version of your web project from the preview page, import the zip into the desktop dashboard, and keep your design and code live, fast, and fully interactive.
+                    </p>
+                    <a href="blog/migrating-from-omia-web-to-local-omia-ide.html" class="text-[#5544FF] font-medium hover:underline mt-auto">Read Article &rarr;</a>
+                </div>
+
                 <!-- Blog Post: Converting Wireframes to Production Applications -->
                 <div class="bg-[#0f0f1a] p-6 rounded-xl card-shadow flex flex-col">
                     <img src="codes.png" alt="Converting Wireframes to Production" class="rounded-lg mb-4 w-full h-auto">
@@ -174,8 +215,8 @@
             <p class="text-lg md:text-xl mb-8 opacity-90">
                 Join thousands of creators already bringing their ideas to life with Omia Studio.
             </p>
-            <a href="https://omia.pro/app" class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl">
-                Get Started Now
+            <a href="downloads.html" class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl">
+                Download App
             </a>
         </div>
     </section>
